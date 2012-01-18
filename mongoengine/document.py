@@ -161,9 +161,9 @@ class Document(BaseDocument):
                 object_id = doc['_id']
                 updates, removals = self._delta()
                 if updates:
-                    collection.update({'_id': object_id}, {"$set": updates}, upsert=True, safe=safe, **write_options)
+                    collection.update({'_id': object_id}, {"$set": updates}, upsert=False, safe=safe, **write_options)
                 if removals:
-                    collection.update({'_id': object_id}, {"$unset": removals}, upsert=True, safe=safe, **write_options)
+                    collection.update({'_id': object_id}, {"$unset": removals}, upsert=False, safe=safe, **write_options)
 
             # Save any references / generic references
             _refs = _refs or []
