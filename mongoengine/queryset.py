@@ -876,8 +876,8 @@ class QuerySet(object):
     def __len__(self):
         return self.count()
         
-    def __nonzero__(self):
-        return bool(self.first())
+    #def __nonzero__(self):
+    #    return bool(self.first())
     
     def map_reduce(self, map_f, reduce_f, output, finalize_f=None, limit=None,
                    scope=None):
