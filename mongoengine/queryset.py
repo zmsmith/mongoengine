@@ -877,7 +877,7 @@ class QuerySet(object):
         return self.count()
         
     def __nonzero__(self):
-        return len(self.first())
+        return self.first() is not None
 
     def map_reduce(self, map_f, reduce_f, output, finalize_f=None, limit=None,
                    scope=None):
